@@ -482,21 +482,18 @@ keys.extend([
     #
     # VARIETY KEYS WITH PYWAL
     #
-    Key([mod1, "shift"], "t", lazy.spawn(
-        "variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) &"
-    )),
-    Key([mod1, "shift"], "n", lazy.spawn(
-        "variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) &"
-    )),
-    Key([mod1, "shift"], "p", lazy.spawn(
-        "variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) &"
-    )),
-    Key([mod1, "shift"], "f", lazy.spawn(
-        "variety -f && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) &"
-    )),
-    Key([mod1, "shift"], "u", lazy.spawn(
-        "wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) &"
-    )),
+
+    # Define the path to the wallpaper file
+    wallpaper_file = os.path.expanduser("~/.config/variety/wallpaper/wallpaper.jpg.txt")
+
+    # Define the keybindings with corrected environment variable expansion
+    keys = [
+        Key([mod1, "shift"], "t", lazy.spawn(f"variety -t && wal -i $(cat {wallpaper_file}) &")),
+        Key([mod1, "shift"], "n", lazy.spawn(f"variety -n && wal -i $(cat {wallpaper_file}) &")),
+        Key([mod1, "shift"], "p", lazy.spawn(f"variety -p && wal -i $(cat {wallpaper_file}) &")),
+        Key([mod1, "shift"], "f", lazy.spawn(f"variety -f && wal -i $(cat {wallpaper_file}) &")),
+        Key([mod1, "shift"], "u", lazy.spawn(f"wal -i $(cat {wallpaper_file}) &")),
+    ]
 
     #
     # CONTROL + SHIFT KEYS
