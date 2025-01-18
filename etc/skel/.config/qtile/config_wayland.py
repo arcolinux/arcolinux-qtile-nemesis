@@ -196,6 +196,8 @@ for grp in groups:
 # ------------------------------------------------------------------------
 # LAYOUTS & THEME
 # ------------------------------------------------------------------------
+
+
 def init_layout_theme():
     return {
         "margin": 5,
@@ -203,6 +205,7 @@ def init_layout_theme():
         "border_focus": "#5e81ac",
         "border_normal": "#4c566a",
     }
+
 
 layout_theme = init_layout_theme()
 
@@ -219,6 +222,8 @@ layouts = [
 # ------------------------------------------------------------------------
 # COLORS
 # ------------------------------------------------------------------------
+
+
 def init_colors():
     return [
         ["#2F343F","#2F343F"], # color 0
@@ -233,15 +238,20 @@ def init_colors():
         ["#a9a9a9","#a9a9a9"], # color 9
     ]
 
+
 colors = init_colors()
 
 # ------------------------------------------------------------------------
 # WIDGETS & BAR
 # ------------------------------------------------------------------------
+
+
 def init_widgets_defaults():
     return dict(font="Noto Sans", fontsize=12, padding=2, background=colors[1])
 
+
 widget_defaults = init_widgets_defaults()
+
 
 def init_widgets_list():
     widgets_list = [
@@ -285,11 +295,14 @@ def init_widgets_list():
     ]
     return widgets_list
 
+
 def init_widgets_screen1():
     return init_widgets_list()
 
+
 def init_widgets_screen2():
     return init_widgets_list()
+
 
 screens = [
     Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=26, opacity=0.8)),
@@ -345,6 +358,8 @@ focus_on_window_activation = "focus"
 # ------------------------------------------------------------------------
 # HOOKS
 # ------------------------------------------------------------------------
+
+
 @hook.subscribe.startup_once
 def start_once():
     """
@@ -353,15 +368,18 @@ def start_once():
     """
     subprocess.call([os.path.join(home, ".config", "qtile", "scripts", "autostart_wayland.sh")])
 
+
 @hook.subscribe.startup
 def start_always():
     # No xsetroot or feh under Wayland. If you had them for X11, remove here.
     pass
 
+
 @hook.subscribe.client_new
 def new_client(window):
     if window.name == "ArchLinux Logout":
         qtile.hide_show_bar()
+
 
 @hook.subscribe.client_killed
 def logout_killed(window):
@@ -371,6 +389,8 @@ def logout_killed(window):
 # ------------------------------------------------------------------------
 # FINAL
 # ------------------------------------------------------------------------
+
+
 wmname = "LG3D"
 
 # ------------------------------------------------------------------------
@@ -524,4 +544,3 @@ keys.extend([
     #
     Key([mod2, mod1], "o", lazy.spawn(f"{home}/.config/qtile/scripts/picom-toggle.sh")),
 ])
-
