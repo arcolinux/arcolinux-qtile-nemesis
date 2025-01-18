@@ -49,7 +49,7 @@ case $choice in
     sudo pacman -S --noconfirm foot
     sudo pacman -S --noconfirm arcolinux-foot-git
     sudo pacman -S --noconfirm volumeicon
-    sudo pacman -S --noconfirm missioncenter
+    sudo pacman -S --noconfirm mission-center
     echo "Installation complete."
     ;;
   2)
@@ -62,7 +62,7 @@ case $choice in
     sudo pacman -Rns --noconfirm foot
     sudo pacman -Rns --noconfirm arcolinux-foot-git
     sudo pacman -Rns --noconfirm volumeicon
-    sudo pacman -Rns --noconfirm missioncenter
+    sudo pacman -Rns --noconfirm mission-center
     echo "Removal complete."
     ;;
   3)
