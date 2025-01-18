@@ -35,6 +35,19 @@ user=$( who | cut -d ' ' -f1 | uniq)
 
 cp -v /home/$user/.config/qtile/config_wayland-azerty.py /home/$user/.config/qtile/config_wayland.py
 
+# Define the line to add
+line="XKB_DEFAULT_LAYOUT=be"
+
+# Check if the line already exists in /etc/environment
+if ! grep -Fxq "$line" /etc/environment; then
+    # If it doesn't exist, append the line
+    echo "$line" | sudo tee -a /etc/environment > /dev/null
+    echo "Line added to /etc/environment."
+else
+    echo "Line already exists in /etc/environment."
+fi
+
+
 echo
 echo "###############################################################################"
 echo "###                         and that is that                               ####"
