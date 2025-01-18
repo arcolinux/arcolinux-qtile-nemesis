@@ -37,16 +37,6 @@ cp -v /home/$user/.config/qtile/config_wayland-azerty.py /home/$user/.config/qti
 
 echo
 echo "###############################################################################"
-echo "Switch to be"
-echo "###############################################################################"
-echo
-
-FIND="#setxkbmap be"
-REPLACE="setxkbmap be"
-sed -i "s/$FIND/$REPLACE/g" /home/$user/.config/qtile/scripts/autostart.sh
-
-echo
-echo "###############################################################################"
 echo "###                         and that is that                               ####"
 echo "###                              reboot                                    ####"
 echo "###############################################################################"
