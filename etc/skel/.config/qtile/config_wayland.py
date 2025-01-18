@@ -24,7 +24,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-#sudo pacman -S wlroots pywlroots python-xcffib foot wofi grim slurp swaybg
+# sudo pacman -S wlroots pywlroots python-xcffib wofi grim slurp swaybg
 # for troubleshooting: qtile start -b wayland -c ~/.config/qtile/wayland_minimal.py  -- log is in .local/share/qtile/qtile.log
 
 import os
@@ -46,23 +46,27 @@ mod2 = "control"   # 'Control' key
 home = os.path.expanduser("~")
 
 # Wayland-native apps
-wayland_terminal = "foot"
+wayland_terminal = "alacritty"
 wayland_launcher = "wofi --show drun"
 
 # ------------------------------------------------------------------------
 # CUSTOM FUNCTIONS (unchanged from your X11 config)
 # ------------------------------------------------------------------------
+
+
 @lazy.function
 def window_to_prev_group(qtile):
     if qtile.currentWindow:
         i = qtile.groups.index(qtile.currentGroup)
         qtile.currentWindow.togroup(qtile.groups[i - 1].name)
 
+
 @lazy.function
 def window_to_next_group(qtile):
     if qtile.currentWindow:
         i = qtile.groups.index(qtile.currentGroup)
         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
+
 
 def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
     i = qtile.screens.index(qtile.current_screen)
@@ -71,6 +75,7 @@ def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
         qtile.current_window.togroup(group, switch_group=switch_group)
         if switch_screen:
             qtile.cmd_to_screen(i - 1)
+
 
 def window_to_next_screen(qtile, switch_group=False, switch_screen=False):
     i = qtile.screens.index(qtile.current_screen)
@@ -83,6 +88,8 @@ def window_to_next_screen(qtile, switch_group=False, switch_screen=False):
 # ------------------------------------------------------------------------
 # KEYBINDINGS
 # ------------------------------------------------------------------------
+
+
 keys = [
     # Basic Qtile stuff
     Key([mod], "f", lazy.window.toggle_fullscreen()),
@@ -148,7 +155,7 @@ keys = [
         lazy.function(window_to_previous_screen, switch_screen=True)),
 
     # Wayland-native: foot + wofi
-    Key([mod], "Return", lazy.spawn(wayland_terminal), desc="Launch foot terminal"),
+    Key([mod], "Return", lazy.spawn(wayland_terminal), desc="Launch terminal"),
     Key([mod], "r", lazy.spawn(wayland_launcher), desc="Launch wofi (drun)"),
 
     # Wayland screenshots (grim + slurp)

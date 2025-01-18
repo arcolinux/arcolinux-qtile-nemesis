@@ -20,19 +20,13 @@ function run {
 #xrandr --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 #autorandr horizontal
 
-##changed via give-me-azerty-qtile
-#setxkbmap be
-
-#autostart ArcoLinux Welcome App
+# autostart ArcoLinux Welcome App
 run dex $HOME/.config/autostart/arcolinux-welcome-app.desktop &
 
-#Some ways to set your wallpaper besides variety or nitrogen
-feh --bg-fill /usr/share/backgrounds/archlinux/arch-wallpaper.jpg &
-feh --bg-fill /usr/share/backgrounds/arco/arco-wallpaper.jpg &
-#wallpaper for other Arch based systems
-#feh --bg-fill /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png &
-#start the conky to learn the shortcuts
-(conky -c $HOME/.config/qtile/scripts/system-overview) &
+# Set your wallpaper
+run swaybg -i /usr/share/backgrounds/archlinux/arch-wallpaper.jpg -m fill &
+# wallpaper for other Arch based systems
+# run swaybg -i /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png -m fill &
 
 #start sxhkd to replace Qtile native key-bindings
 run sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc &
