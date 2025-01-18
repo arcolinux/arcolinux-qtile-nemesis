@@ -44,6 +44,7 @@ case $choice in
     sudo pacman -S --noconfirm python-pywlroots
     sudo pacman -S --noconfirm wofi
     sudo pacman -S --noconfirm swaybg
+    sudo pacman -S --noconfirm grim
     echo "Installation complete."
     ;;
   2)
@@ -51,6 +52,7 @@ case $choice in
     sudo pacman -Rns --noconfirm python-pywlroots
     sudo pacman -Rns --noconfirm wofi
     sudo pacman -Rns --noconfirm swaybg
+    sudo pacman -Rns --noconfirm grim
     echo "Removal complete."
     ;;
   3)
