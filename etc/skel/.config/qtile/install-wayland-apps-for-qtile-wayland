@@ -48,6 +48,7 @@ case $choice in
     sudo pacman -S --noconfirm python-pywal
     sudo pacman -S --noconfirm foot
     sudo pacman -S --noconfirm arcolinux-foot-git
+    sudo pacman -S --noconfirm volumeicon
     echo "Installation complete."
     ;;
   2)
@@ -59,6 +60,7 @@ case $choice in
     sudo pacman -Rns --noconfirm python-pywal
     sudo pacman -Rns --noconfirm foot
     sudo pacman -Rns --noconfirm arcolinux-foot-git
+    sudo pacman -Rns --noconfirm volumeicon
     echo "Removal complete."
     ;;
   3)
