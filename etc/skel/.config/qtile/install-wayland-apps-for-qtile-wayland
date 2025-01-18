@@ -46,6 +46,8 @@ case $choice in
     sudo pacman -S --noconfirm swaybg
     sudo pacman -S --noconfirm grim
     sudo pacman -S --noconfirm python-pywal
+    sudo pacman -S --noconfirm foot
+    sudo pacman -S --noconfirm arcolinux-foot-git
     echo "Installation complete."
     ;;
   2)
@@ -55,6 +57,8 @@ case $choice in
     sudo pacman -Rns --noconfirm swaybg
     sudo pacman -Rns --noconfirm grim
     sudo pacman -Rns --noconfirm python-pywal
+    sudo pacman -Rns --noconfirm foot
+    sudo pacman -Rns --noconfirm arcolinux-foot-git
     echo "Removal complete."
     ;;
   3)

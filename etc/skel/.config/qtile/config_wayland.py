@@ -45,12 +45,12 @@ mod1 = "mod1"      # 'Alt' key
 mod2 = "control"   # 'Control' key
 home = os.path.expanduser("~")
 
-# Wayland-native apps
 wayland_terminal = "alacritty"
 wayland_launcher = "wofi --show drun"
 scripts_dir = os.path.expanduser('~/.config/qtile/scripts')
 menu = os.path.join(scripts_dir, 'menut')
 fullmenu = os.path.join(scripts_dir, 'fullmenut')
+wallpaper_file = os.path.expanduser("~/.config/variety/wallpaper/wallpaper.jpg.txt")
 
 # ------------------------------------------------------------------------
 # CUSTOM FUNCTIONS (unchanged from your X11 config)
@@ -483,22 +483,17 @@ keys.extend([
     # VARIETY KEYS WITH PYWAL
     #
 
-    # Define the path to the wallpaper file
-    wallpaper_file = os.path.expanduser("~/.config/variety/wallpaper/wallpaper.jpg.txt")
-
     # Define the keybindings with corrected environment variable expansion
-    keys = [
-        Key([mod1, "shift"], "t", lazy.spawn(f"variety -t && wal -i $(cat {wallpaper_file}) &")),
-        Key([mod1, "shift"], "n", lazy.spawn(f"variety -n && wal -i $(cat {wallpaper_file}) &")),
-        Key([mod1, "shift"], "p", lazy.spawn(f"variety -p && wal -i $(cat {wallpaper_file}) &")),
-        Key([mod1, "shift"], "f", lazy.spawn(f"variety -f && wal -i $(cat {wallpaper_file}) &")),
-        Key([mod1, "shift"], "u", lazy.spawn(f"wal -i $(cat {wallpaper_file}) &")),
-    ]
+    Key([mod1, "shift"], "t", lazy.spawn(f"variety -t && wal -i $(cat {wallpaper_file}) &")),
+    Key([mod1, "shift"], "n", lazy.spawn(f"variety -n && wal -i $(cat {wallpaper_file}) &")),
+    Key([mod1, "shift"], "p", lazy.spawn(f"variety -p && wal -i $(cat {wallpaper_file}) &")),
+    Key([mod1, "shift"], "f", lazy.spawn(f"variety -f && wal -i $(cat {wallpaper_file}) &")),
+    Key([mod1, "shift"], "u", lazy.spawn(f"wal -i $(cat {wallpaper_file}) &")),
 
     #
     # CONTROL + SHIFT KEYS
     #
-    Key([mod2, "shift"], "Escape", lazy.spawn("xfce4-taskmanager")),  # XWayland
+    Key([mod2, "shift"], "Escape", lazy.spawn("xfce4-taskmanager")),
 
     #
     # SCREENSHOTS (replaced scrot/gnome-screenshot with grim+slurp above)
