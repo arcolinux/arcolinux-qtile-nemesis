@@ -493,7 +493,7 @@ keys.extend([
     #
     # CONTROL + SHIFT KEYS
     #
-    Key([mod2, "shift"], "Escape", lazy.spawn("xfce4-taskmanager")),
+    Key([mod2, "shift"], "Escape", lazy.spawn("missioncenter")),
 
     #
     # SCREENSHOTS (replaced scrot/gnome-screenshot with grim+slurp above)
