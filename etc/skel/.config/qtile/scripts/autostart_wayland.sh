@@ -9,59 +9,56 @@ function run {
   fi
 }
 
-# -----------------------------------------------------------------------------
-# 1. Wallpaper (use swaybg for Wayland)
-# -----------------------------------------------------------------------------
-run swaybg -i ~/Pictures/wallpaper.jpg -m fill
+#Set your native resolution IF it does not exist in xrandr
+#More info in the script
+#run $HOME/.config/qtile/scripts/set-screen-resolution-in-virtualbox.sh
 
-# -----------------------------------------------------------------------------
-# 2. System tray / background services
-# -----------------------------------------------------------------------------
-run nm-applet
-run blueman-applet
-run pasystray
-run /usr/lib/xdg-desktop-portal-wlr
+#Find out your monitor name with xrandr or arandr (save and you get this line)
+#xrandr --output VGA-1 --primary --mode 1360x768 --pos 0x0 --rotate normal
+#xrandr --output DP2 --primary --mode 1920x1080 --rate 60.00 --output LVDS1 --off &
+#xrandr --output LVDS1 --mode 1366x768 --output DP3 --mode 1920x1080 --right-of LVDS1
+#xrandr --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+#autorandr horizontal
 
-# If you’re using pipewire portals for screen sharing or other portals:
-# run xdg-desktop-portal
+##changed via give-me-azerty-qtile
+#setxkbmap be
 
-# -----------------------------------------------------------------------------
-# 3. ArcoLinux Welcome App
-# -----------------------------------------------------------------------------
-run dex "$HOME/.config/autostart/arcolinux-welcome-app.desktop"
+#autostart ArcoLinux Welcome App
+run dex $HOME/.config/autostart/arcolinux-welcome-app.desktop &
 
-# -----------------------------------------------------------------------------
-# 4. Additional Apps/Services
-# -----------------------------------------------------------------------------
-# Some of these might still work under XWayland (like variety, volumeicon).
-# If they don’t, remove or replace with Wayland-native alternatives.
+#Some ways to set your wallpaper besides variety or nitrogen
+feh --bg-fill /usr/share/backgrounds/archlinux/arch-wallpaper.jpg &
+feh --bg-fill /usr/share/backgrounds/arco/arco-wallpaper.jpg &
+#wallpaper for other Arch based systems
+#feh --bg-fill /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png &
+#start the conky to learn the shortcuts
+(conky -c $HOME/.config/qtile/scripts/system-overview) &
 
-run variety
-run nm-applet
-run xfce4-power-manager
-run numlockx on
-run blueberry-tray
-# picom does not apply under Wayland, so remove or comment out:
-# run picom --config $HOME/.config/qtile/scripts/picom.conf
+#start sxhkd to replace Qtile native key-bindings
+run sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc &
 
-run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-run /usr/lib/xfce4/notifyd/xfce4-notifyd
+#starting utility applications at boot time
+run variety &
+run nm-applet &
+#run pamac-tray &
+run xfce4-power-manager &
+numlockx on &
+blueberry-tray &
+picom --config $HOME/.config/qtile/scripts/picom.conf &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
 
-run volumeicon
-# run discord
-# run firefox
-# run telegram-desktop
-# run dropbox
-# run insync start
-# run spotify
-# ... etc.
-
-# -----------------------------------------------------------------------------
-# 5. Keybindings via sxhkd (Optional)
-# -----------------------------------------------------------------------------
-# If you still want to use sxhkd under Wayland + XWayland:
-run sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc
-
-# -----------------------------------------------------------------------------
-# Done!
-# -----------------------------------------------------------------------------
+#starting user applications at boot time
+run volumeicon &
+#run discord &
+#nitrogen --restore &
+#run caffeine -a &
+#run vivaldi-stable &
+#run firefox &
+#run thunar &
+#run dropbox &
+#run insync start &
+#run spotify &
+#run telegram-desktop &
+#run /usr/bin/octopi-notifier &
+#run code &
