@@ -48,7 +48,7 @@ home = os.path.expanduser("~")
 # Wayland-native apps
 wayland_terminal = "alacritty"
 wayland_launcher = "wofi --show drun"
-scripts_dir = os.path.expanduser('~/.config/hypr/scripts')
+scripts_dir = os.path.expanduser('~/.config/qtile/scripts')
 menu = os.path.join(scripts_dir, 'menut')
 fullmenu = os.path.join(scripts_dir, 'fullmenut')
 
@@ -412,12 +412,8 @@ keys.extend([
     Key([mod], "F8", lazy.spawn("thunar")),
     Key([mod], "F9", lazy.spawn("lollypop")),
     Key([mod], "F10", lazy.spawn("spotify")),
-
-    # Replaced rofi with wofi, or keep rofi if you want XWayland:
-    # Key([mod], "F11", lazy.spawn("rofi -theme-str 'window {width:100%;height:100%;}' -show drun")),
-    # Key([mod], "F12", lazy.spawn("rofi -show drun")),
-    Key([mod], "F11", lazy.spawn("wofi --show drun")),
-    Key([mod], "F12", lazy.spawn("wofi --show drun")),
+    Key([mod], "F11", lazy.spawn(menu)),
+    Key([mod], "F12", lazy.spawn(fullmenu)),
 
     #
     # SUPER + ... KEYS
@@ -434,7 +430,6 @@ keys.extend([
     Key([mod], "v", lazy.spawn("pavucontrol")),
     Key([mod], "m", lazy.spawn("lollypop")),
     Key([mod], "Return", lazy.spawn(wayland_terminal)),
-    Key([mod], "Escape", lazy.spawn("xkill")),             # requires XWayland
     Key([mod], "KP_Enter", lazy.spawn(wayland_terminal)),  # numpad enter
 
     #
