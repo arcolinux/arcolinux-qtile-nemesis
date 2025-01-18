@@ -40,12 +40,13 @@ line="XKB_DEFAULT_LAYOUT=be"
 
 # Check if the line already exists in /etc/environment
 if ! grep -Fxq "$line" /etc/environment; then
-    # If it doesn't exist, append the line
-    echo "$line" | sudo tee -a /etc/environment > /dev/null
+    # If the line doesn't exist, append it as a new line at the end
+    echo -e "\n$line" | sudo tee -a /etc/environment > /dev/null
     echo "Line added to /etc/environment."
 else
     echo "Line already exists in /etc/environment."
 fi
+
 
 
 echo
