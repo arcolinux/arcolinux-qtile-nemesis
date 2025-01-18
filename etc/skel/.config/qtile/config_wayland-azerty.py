@@ -166,8 +166,8 @@ keys = [
 # GROUPS
 # ------------------------------------------------------------------------
 groups = []
-group_names = ["1","2","3","4","5","6","7","8","9","0"]
-# group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft",
+# group_names = ["1","2","3","4","5","6","7","8","9","0"]
+group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft",
                "section", "egrave", "exclam", "ccedilla", "agrave",]
 
 group_labels = ["","","","","","","","","",""]
