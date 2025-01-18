@@ -153,8 +153,6 @@ keys = [
         lazy.function(window_to_next_screen, switch_screen=True)),
     Key([mod, "shift"], "Left",
         lazy.function(window_to_previous_screen, switch_screen=True)),
-
-    # Wayland-native: foot + wofi
     Key([mod], "Return", lazy.spawn(wayland_terminal), desc="Launch terminal"),
     Key([mod], "r", lazy.spawn(wayland_launcher), desc="Launch wofi (drun)"),
 
@@ -424,19 +422,16 @@ keys.extend([
     Key([mod], "w", lazy.spawn("vivaldi-stable")),
     Key([mod], "c", lazy.spawn("conky-toggle")),
     Key([mod, "control"], "c", lazy.spawn("killall conky")),
-    # Key([mod], "h", lazy.spawn("foot -e htop")),  # optional
     Key([mod], "x", lazy.spawn("archlinux-logout")),
     Key([mod, "shift"], "x", lazy.spawn("arcolinux-powermenu")),
     # Rofi -> wofi
     Key([mod], "r", lazy.spawn("wofi --show drun")),
-    # Old urxvt -> foot
-    Key([mod], "t", lazy.spawn("foot")),
+    Key([mod], "t", lazy.spawn(wayland_terminal)),
     Key([mod], "v", lazy.spawn("pavucontrol")),
     Key([mod], "m", lazy.spawn("lollypop")),
-    # Old alacritty -> foot again or keep if you want
-    Key([mod], "Return", lazy.spawn("foot")),
+    Key([mod], "Return", lazy.spawn(wayland_terminal)),
     Key([mod], "Escape", lazy.spawn("xkill")),           # requires XWayland
-    Key([mod], "KP_Enter", lazy.spawn("foot")),          # numpad enter
+    Key([mod], "KP_Enter", lazy.spawn(wayland_terminal)),          # numpad enter
 
     #
     # SUPER + SHIFT KEYS
@@ -467,9 +462,8 @@ keys.extend([
     Key([mod2, mod1], "u", lazy.spawn("pavucontrol")),
     Key([mod2, mod1], "r", lazy.spawn("wofi --show drun")),
     Key([mod2, mod1], "s", lazy.spawn("spotify")),
-    # Old alacritty -> foot
-    Key([mod2, mod1], "Return", lazy.spawn("foot")),
-    Key([mod2, mod1], "t", lazy.spawn("foot")),
+    Key([mod2, mod1], "Return", lazy.spawn(wayland_terminal)),
+    Key([mod2, mod1], "t", lazy.spawn(wayland_terminal)),
     Key([mod2, mod1], "v", lazy.spawn("vivaldi-stable")),
     Key([mod2, mod1], "a", lazy.spawn("xfce4-appfinder")),
 
