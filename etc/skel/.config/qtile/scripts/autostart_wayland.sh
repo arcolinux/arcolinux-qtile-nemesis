@@ -24,12 +24,13 @@ function run {
 run dex $HOME/.config/autostart/arcolinux-welcome-app.desktop &
 
 # Set your wallpaper
+run swaybg -i /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg -m fill &
 run swaybg -i /usr/share/backgrounds/archlinux/arch-wallpaper.jpg -m fill &
 # wallpaper for other Arch based systems
 # run swaybg -i /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png -m fill &
 
 #starting utility applications at boot time
-#run variety &
+run variety &
 #run nm-applet &
 #run pamac-tray &
 #run xfce4-power-manager &
